@@ -9,16 +9,27 @@ import Foundation
 import UIKit
 
 struct CurrentWeatherForecast: Decodable {
-  let windSpeed: Double
-  let windDirection: Double
+  let windspeed: Double
+  let winddirection: Double
   let temperature: Double
-  let weatherCodeRaw: Int
+  let weathercodeRaw: Int?
   var weatherCode: WeatherCode {
-    return WeatherCode(rawValue: weatherCodeRaw) ?? .clearSky
+      return WeatherCode(rawValue: weathercodeRaw ?? 0) ?? .clearSky
   }
     
     
 }
+
+//struct CurrentWeather2: Decodable {
+//    let temperature, windspeed: Double
+//    let winddirection, weathercode: Int
+//
+//    enum CodingKeys: String, CodingKey {
+//        case temperature, windspeed, winddirection, weathercode
+//    }
+//}
+
+
 
 struct WeatherAPIResponse: Decodable {
   let currentWeather: CurrentWeatherForecast

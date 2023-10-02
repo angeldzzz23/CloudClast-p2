@@ -37,6 +37,8 @@ class WeatherForecastService {
     DispatchQueue.main.async {
            completion?(response.currentWeather)
          }
+        
+        
     }
     task.resume() // resume the task and fire the request
   }
@@ -53,10 +55,10 @@ class WeatherForecastService {
       let temperature = currentWeather["temperature"] as! Double
       // weather code
       let weatherCodeRaw = currentWeather["weathercode"] as! Int
-      return CurrentWeatherForecast(windSpeed: windSpeed,
-                                    windDirection: windDirection,
-                                    temperature: temperature,
-                                    weatherCodeRaw: weatherCodeRaw)
+        return CurrentWeatherForecast(windspeed: windSpeed,
+                                      winddirection: windDirection,
+                                      temperature: temperature,
+                                      weathercodeRaw: weatherCodeRaw)
     }
     
     
